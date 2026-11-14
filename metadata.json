@@ -1,0 +1,6 @@
+{
+  "name": "Meridian & Sterling LLP",
+  "description": "Global corporate law firm advising institutions on high-stakes M&A, complex litigation, intellectual property, restructuring, and real estate.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
