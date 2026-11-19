@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { PageRoute } from '../types';
+import { FIRM_ASSETS } from '../data/firmData';
 
 interface NavbarProps {
   currentRoute: PageRoute;
@@ -17,6 +18,7 @@ const NAV_ITEMS: { label: string; route: PageRoute }[] = [
 
 export const Navbar: React.FC<NavbarProps> = ({ currentRoute, onNavigate }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [logoError, setLogoError] = useState(false);
 
   const handleNav = (route: PageRoute) => {
     setMobileMenuOpen(false);
@@ -31,15 +33,30 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, onNavigate }) => {
   };
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-slate-200">
+    <header className="sticky top-0 z-40 bg-white border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-8">
-        {/* Zone 1: Single-line Brand Wordmark */}
+        {/* Zone 1: Brand Logo Lockup */}
         <button
           type="button"
           onClick={() => handleNav(PageRoute.HOME)}
-          className="font-serif text-xl sm:text-2xl font-semibold tracking-tight text-[#0B1F3A] whitespace-nowrap shrink-0 cursor-pointer hover:text-[#132D52] transition-colors"
+          aria-label="Lexford Legislator Home"
+          className="flex items-center shrink-0 cursor-pointer focus-visible:outline-2 focus-visible:outline-[#9A7B3E]"
         >
-          Lexford Legislator
+          {logoError ? (
+            <span className="font-serif text-xl sm:text-2xl font-semibold tracking-tight text-[#0B1F3A] whitespace-nowrap">
+              Lexford Legislator
+            </span>
+          ) : (
+            <span className="block w-[168px] sm:w-[188px] h-12 overflow-hidden bg-white">
+              <img
+                src={FIRM_ASSETS.logo}
+                alt="Lexford Legislator"
+                referrerPolicy="no-referrer"
+                onError={() => setLogoError(true)}
+                className="w-full h-full object-cover object-center scale-[1.18]"
+              />
+            </span>
+          )}
         </button>
 
         {/* Zone 2: 5 concise single-line navigation links */}

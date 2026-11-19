@@ -1,5 +1,6 @@
 import heroLawHeadquarters from '../assets/images/hero_law_headquarters_1794656088163.jpg';
 import editorialFirmLibrary from '../assets/images/editorial_firm_library_1794656088781.jpg';
+import lexfordLogo from '../assets/images/lexford_legislator_logo_1795058369542.jpg';
 import portraitMarcusSterling from '../assets/images/portrait_marcus_sterling_1794656089895.jpg';
 import portraitJulianThorne from '../assets/images/portrait_julian_thorne_1794656090744.jpg';
 import portraitClaireLin from '../assets/images/portrait_claire_lin_1794656091313.jpg';
@@ -21,6 +22,7 @@ import {
 export const FIRM_ASSETS = {
   heroHeadquarters: heroLawHeadquarters,
   editorialLibrary: editorialFirmLibrary,
+  logo: lexfordLogo,
 };
 
 export const FIRM_METRICS = [
